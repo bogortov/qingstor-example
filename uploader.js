@@ -2,11 +2,10 @@ var QsAuthService = require('./QsAuthService');
 var fs = require('fs');
 var http = require('http');
 
-//all what need to change on your side
+//al you need to change
 QsAuthService.accessID = "";
 QsAuthService.accessKey = "";
-var bucket = 'testbucket';
-
+var bucket = 'testBucket';
 //optional
 var path = 'new-image.png';
 var qingUrl = 'pek3a.qingstor.com';
@@ -21,7 +20,7 @@ var authPath = "/" + bucket + "/" + path;
 
 var headers = {};
 headers["Date"] = new Date().toUTCString();
-//when comment the next line its working and returns 201
+//when comment the next line its working and returns 201, when uncomment - 401
 // headers["Content-Type"] = fileContentType;
 
 headers["Content-Length"] = fileSize;
@@ -47,6 +46,7 @@ var options = {
 var req = http.request(options, function(response) {
 
   response.on('data', function(d) {
+    process.stdout.write(d);
     console.log("Status", response.statusCode, "Message", response.statusMessage);
   });
 
