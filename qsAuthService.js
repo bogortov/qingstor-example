@@ -24,7 +24,7 @@ service.genSignature = function(method, authpath, headers, params){
   // Append Content-Type and Content-Md5
   var ContentType = headers['Content-Type'] || "";
   var ContentMD5 = headers['Content-MD5'] || "";
-  stringToSign += "\n" + ContentType + "\n" + ContentMD5;
+  stringToSign += "\n" + ContentMD5 + "\n" + ContentType;
 
   // Append time
   var dateStr = headers['X-QS-Date'] || "";
