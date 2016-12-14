@@ -1,4 +1,4 @@
-var QsAuthService = require('./QsAuthService');
+var QsAuthService = require('./qsAuthService');
 var fs = require('fs');
 var http = require('http');
 
